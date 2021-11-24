@@ -43,9 +43,25 @@ const generateLetterButtons = () => {
 //
 // `buttonEl` is an `HTMLElement` object.
 //
+// const buttonEl = document.querySelector('#letter-buttons');
+
 const disableLetterButton = buttonEl => {
-  // Replace this with your code
+  // loop throug buttonEl array and create event listener for each button
+  for (const button of buttonEl) {  
+    // evt gets element that was actually clicked
+    button.addEventListener('click', (evt) => {
+      // once sth is clicked, update target of clicking event disabled prop to true
+      evt.target.setAttribute('disabled', 'true');    
+  });}
 };
+
+// CALL disableLetterButton
+// get array all elements within container with id=letter-button id
+const listButtons = document.querySelectorAll('#letter-buttons');
+// call disableLetterButton on all buttons
+disableLetterButton(listButtons);
+
+
 
 // This is a helper function we will use in the future
 // It should return `true` if `letter` is in the word
